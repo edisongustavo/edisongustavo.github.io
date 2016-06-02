@@ -1,15 +1,19 @@
 ---
 layout: post
-title: "Share buttons"
-date: 2016-05-15 16:25:06
-description: Built-in share buttons!
+title: "Hello world"
+date: 2016-06-02 18:10:00
+description: Blog description and first post
 share: true
 ---
 
-# Share buttons
+# First post!
 
-This theme comes with built-in share buttons. You can see them in the bottom f this post.
-To turn them on in the header of your post add:
+Ok, so I'm pretty new in this "blog business" however I like writing.
+
+I will try to post technical stuff here. Maybe I'll post non-technical stuff too, however, expect those posts to be rarer.
+
+I'm a computer scientist who graduated at [Universidade Federal de Santa Catarina](http://ufsc.br/) in Computer Science.
+
 
 {% highlight yml %}
 share: true
