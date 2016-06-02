@@ -4,8 +4,8 @@ name: A software developer thoughts (and maybe rants)
 description: Software Developer
 
 # Url is currently only used only for the RSS feed in feed.xml
-#url: http://edisongustavo.github.io
-url: http://127.0.0.1:4000
+url: http://edisongustavo.github.io
+#url: http://127.0.0.1:4000
 
 # For a project page here should be a project name. Otherwise (for user's/organizaion's page leave it empty)
 baseurl: ''
