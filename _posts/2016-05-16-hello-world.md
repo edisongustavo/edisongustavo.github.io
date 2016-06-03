@@ -19,7 +19,7 @@ I'm a computer scientist who graduated at [Universidade Federal de Santa Catarin
 
 I currently work at [ESSS](http://www.esss.com.br/) as a *Scientific Software Developer*.
 
-My routine is dealing with huge technologies such as [numpy](http://www.numpy.org/), [scipy](https://www.scipy.org/) and lately [numba](http://numba.pydata.org/)
+My routine is dealing with technologies such as [numpy](http://www.numpy.org/), [scipy](https://www.scipy.org/) and lately [numba](http://numba.pydata.org/).
 
 ## Interests
 
