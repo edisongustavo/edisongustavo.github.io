@@ -5,6 +5,8 @@ date: 2016-06-02 18:10:00
 description: Blog description and first post
 ---
 
+![screenshot]({{ site.baseurl | prepend:site.url}}/images/helloworld.png){: .center-image }
+
 # First post!
 
 Ok, so I'm pretty new in this "blog business" however I like writing.
