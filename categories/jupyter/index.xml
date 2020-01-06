@@ -22,7 +22,7 @@
       <description>My intention here is to show that it is indeed possible to use Jupyter to write blog posts, which I actually intend to do more often than writing Markdown
 Why? Jupyter is great because I can mix code and documentation together.
 print(&amp;#34;Text is supported :)&amp;#34;) Text is supported :)  For example, look at this example from the seaborn library:
-!pip install altair vega_datasets import seaborn as sns sns.set() tips = sns.</description>
+!pip install seaborn import seaborn as sns sns.set() tips = sns.</description>
     </item>
     
   </channel>
