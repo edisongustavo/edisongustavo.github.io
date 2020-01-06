@@ -3,26 +3,63 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://edisongustavo.github.io/</loc>
+    <loc>https://edisongustavo.github.io/</loc>
     <lastmod>2020-01-06T11:05:29+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://edisongustavo.github.io/posts/my-first-post/</loc>
+    <loc>https://edisongustavo.github.io/posts/my-first-post/</loc>
     <lastmod>2020-01-06T11:05:29+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://edisongustavo.github.io/posts/</loc>
+    <loc>https://edisongustavo.github.io/posts/</loc>
     <lastmod>2020-01-06T11:05:29+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://edisongustavo.github.io/categories/</loc>
+    <loc>https://edisongustavo.github.io/categories/</loc>
+    <lastmod>2020-01-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://edisongustavo.github.io/tags/</loc>
+    <loc>https://edisongustavo.github.io/categories/hugo/</loc>
+    <lastmod>2020-01-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://edisongustavo.github.io/tags/hugo/</loc>
+    <lastmod>2020-01-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://edisongustavo.github.io/categories/jupyter/</loc>
+    <lastmod>2020-01-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://edisongustavo.github.io/tags/jupyter/</loc>
+    <lastmod>2020-01-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://edisongustavo.github.io/tags/nb2hugo/</loc>
+    <lastmod>2020-01-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://edisongustavo.github.io/tags/notebook/</loc>
+    <lastmod>2020-01-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://edisongustavo.github.io/posts/hello-jupyter/</loc>
+    <lastmod>2020-01-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://edisongustavo.github.io/tags/</loc>
+    <lastmod>2020-01-06T00:00:00+00:00</lastmod>
   </url>
   
 </urlset>
