@@ -25,14 +25,5 @@ print(&amp;#34;Text is supported :)&amp;#34;) Text is supported :)  For example,
 !pip install seaborn import seaborn as sns sns.set() tips = sns.</description>
     </item>
     
-    <item>
-      <title>Testing HTML output</title>
-      <link>https://edisongustavo.github.io/posts/test-html/</link>
-      <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
-      <author>edisongustavo@gmail.com (Edison Gustavo Muenz)</author>
-      <guid>https://edisongustavo.github.io/posts/test-html/</guid>
-      <description>import pandas as pd pd.DataFrame([1, 2, 3]) .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }  import altair as alt # load a simple dataset as a pandas DataFrame from vega_datasets import data cars = data.cars() chart = alt.Chart(cars).mark_point().encode( x=&amp;#39;Horsepower&amp;#39;, y=&amp;#39;Miles_per_Gallon&amp;#39;, color=&amp;#39;Origin&amp;#39;, ) chart.interactive()   (function(spec, embedOpt){ const outputDiv = document.getElementById(&#34;altair-viz-2&#34;); const paths = { &#34;vega&#34;: &#34;https://cdn.jsdelivr.net/npm//vega@5?noext&#34;, &#34;vega-lib&#34;: &#34;https://cdn.jsdelivr.net/npm//vega-lib?noext&#34;, &#34;vega-lite&#34;: &#34;https://cdn.jsdelivr.net/npm//vega-lite@4.0.0?noext&#34;, &#34;vega-embed&#34;: &#34;</description>
-    </item>
-    
   </channel>
 </rss>
