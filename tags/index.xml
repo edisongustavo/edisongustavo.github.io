@@ -8,10 +8,42 @@
     <language>en-us</language>
     <managingEditor>edisongustavo@gmail.com (Edison Gustavo Muenz)</managingEditor>
     <webMaster>edisongustavo@gmail.com (Edison Gustavo Muenz)</webMaster>
-    <lastBuildDate>Mon, 06 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 02 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://edisongustavo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Beginner</title>
+      <link>https://edisongustavo.github.io/tags/beginner/</link>
+      <pubDate>Fri, 02 Oct 2020 00:00:00 +0000</pubDate>
+      <author>edisongustavo@gmail.com (Edison Gustavo Muenz)</author>
+      <guid>https://edisongustavo.github.io/tags/beginner/</guid>
+      <description></description>
+    </item>
     
-	<atom:link href="https://edisongustavo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>fizzbuzz</title>
+      <link>https://edisongustavo.github.io/tags/fizzbuzz/</link>
+      <pubDate>Fri, 02 Oct 2020 00:00:00 +0000</pubDate>
+      <author>edisongustavo@gmail.com (Edison Gustavo Muenz)</author>
+      <guid>https://edisongustavo.github.io/tags/fizzbuzz/</guid>
+      <description></description>
+    </item>
     
+    <item>
+      <title>Machine Learning</title>
+      <link>https://edisongustavo.github.io/tags/machine-learning/</link>
+      <pubDate>Fri, 02 Oct 2020 00:00:00 +0000</pubDate>
+      <author>edisongustavo@gmail.com (Edison Gustavo Muenz)</author>
+      <guid>https://edisongustavo.github.io/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pytorch</title>
+      <link>https://edisongustavo.github.io/tags/pytorch/</link>
+      <pubDate>Fri, 02 Oct 2020 00:00:00 +0000</pubDate>
+      <author>edisongustavo@gmail.com (Edison Gustavo Muenz)</author>
+      <guid>https://edisongustavo.github.io/tags/pytorch/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Hugo</title>

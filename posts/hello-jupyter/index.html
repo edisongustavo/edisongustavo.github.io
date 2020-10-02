@@ -57,7 +57,7 @@
     "name" : "Edison Gustavo Muenz"
   },
   "headline": "Publishing with Jupyter notebooks",
-  "description" : "My intention here is to show that it is indeed possible to use Jupyter to write blog posts, which I actually intend to do more often than writing Markdown\nWhy? Jupyter is great because I can mix code and documentation together.\nprint(\x26#34;Text is supported :)\x26#34;) Text is supported :)  For example, look at this example from the seaborn library:\n!pip install seaborn import seaborn as sns sns.set() tips = sns.",
+  "description" : "My intention here is to show that it is indeed possible to use Jupyter to write blog posts, which I actually intend to do more often than writing Markdown\nWhy? Jupyter is great because I can mix code and documentation together.\nprint(\u0026#34;Text is supported :)\u0026#34;) Text is supported :)  For example, look at this example from the seaborn library:\n!pip install seaborn import seaborn as sns sns.set() tips = sns.",
   "inLanguage" : "en",
   "wordCount":  8244 ,
   "datePublished" : "2020-01-06T00:00:00",
@@ -87,7 +87,7 @@
   <meta name="twitter:title" content="Publishing with Jupyter notebooks" />
   <meta name="twitter:description" content="How to publish to Hugo using jupyter notebooks">
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.62.2" />
+  <meta name="generator" content="Hugo 0.75.1" />
   <link rel="alternate" href="https://edisongustavo.github.io/index.xml" type="application/rss+xml" title="edisongustavo.me"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://edisongustavo.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -240,16 +240,16 @@
         <p>My intention here is to show that it is indeed possible to use Jupyter to write blog posts, which I actually intend to do more often than writing Markdown</p>
 <h1 id="why">Why?</h1>
 <p>Jupyter is great because I can mix code and documentation together.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Text is supported :)</span><span style="color:#e6db74">&#34;</span>)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Text is supported :)&#34;</span>)
 </code></pre></div><pre><code>Text is supported :)
 </code></pre>
 <p>For example, look at this example from the <a href="https://seaborn.pydata.org/">seaborn</a> library:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#960050;background-color:#1e0010">!</span>pip install seaborn
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> seaborn <span style="color:#f92672">as</span> sns
 sns<span style="color:#f92672">.</span>set()
-tips <span style="color:#f92672">=</span> sns<span style="color:#f92672">.</span>load_dataset(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">tips</span><span style="color:#e6db74">&#34;</span>)
-sns<span style="color:#f92672">.</span>relplot(x<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">total_bill</span><span style="color:#e6db74">&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">tip</span><span style="color:#e6db74">&#34;</span>, col<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">time</span><span style="color:#e6db74">&#34;</span>,
-            hue<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">smoker</span><span style="color:#e6db74">&#34;</span>, style<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">smoker</span><span style="color:#e6db74">&#34;</span>, size<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">size</span><span style="color:#e6db74">&#34;</span>,
+tips <span style="color:#f92672">=</span> sns<span style="color:#f92672">.</span>load_dataset(<span style="color:#e6db74">&#34;tips&#34;</span>)
+sns<span style="color:#f92672">.</span>relplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;total_bill&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tip&#34;</span>, col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;time&#34;</span>,
+            hue<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;smoker&#34;</span>, style<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;smoker&#34;</span>, size<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;size&#34;</span>,
             data<span style="color:#f92672">=</span>tips);
 </code></pre></div><p><img src="output_6_0.png" alt="png"></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> altair <span style="color:#f92672">as</span> alt
@@ -259,9 +259,9 @@ sns<span style="color:#f92672">.</span>relplot(x<span style="color:#f92672">=</s
 cars <span style="color:#f92672">=</span> data<span style="color:#f92672">.</span>cars()
 
 alt<span style="color:#f92672">.</span>Chart(cars)<span style="color:#f92672">.</span>mark_point()<span style="color:#f92672">.</span>encode(
-    x<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Horsepower</span><span style="color:#e6db74">&#39;</span>,
-    y<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Miles_per_Gallon</span><span style="color:#e6db74">&#39;</span>,
-    color<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Origin</span><span style="color:#e6db74">&#39;</span>,
+    x<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Horsepower&#39;</span>,
+    y<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Miles_per_Gallon&#39;</span>,
+    color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Origin&#39;</span>,
 )<span style="color:#f92672">.</span>interactive()
 </code></pre></div>
 
@@ -388,7 +388,7 @@ alt<span style="color:#f92672">.</span>Chart(cars)<span style="color:#f92672">.<
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.62.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.75.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

@@ -3,8 +3,53 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://edisongustavo.github.io/tags/beginner/</loc>
+    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://edisongustavo.github.io/categories/</loc>
+    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://edisongustavo.github.io/</loc>
-    <lastmod>2020-01-06T11:05:29+01:00</lastmod>
+    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://edisongustavo.github.io/tags/fizzbuzz/</loc>
+    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://edisongustavo.github.io/posts/fizzbuzz/</loc>
+    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://edisongustavo.github.io/tags/machine-learning/</loc>
+    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://edisongustavo.github.io/categories/machine-learning/</loc>
+    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://edisongustavo.github.io/posts/</loc>
+    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://edisongustavo.github.io/tags/pytorch/</loc>
+    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://edisongustavo.github.io/tags/</loc>
+    <lastmod>2020-10-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -13,12 +58,7 @@
   </url>
   
   <url>
-    <loc>https://edisongustavo.github.io/posts/</loc>
-    <lastmod>2020-01-06T11:05:29+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://edisongustavo.github.io/categories/</loc>
+    <loc>https://edisongustavo.github.io/tags/hugo/</loc>
     <lastmod>2020-01-06T00:00:00+00:00</lastmod>
   </url>
   
@@ -28,17 +68,12 @@
   </url>
   
   <url>
-    <loc>https://edisongustavo.github.io/tags/hugo/</loc>
+    <loc>https://edisongustavo.github.io/tags/jupyter/</loc>
     <lastmod>2020-01-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://edisongustavo.github.io/categories/jupyter/</loc>
-    <lastmod>2020-01-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://edisongustavo.github.io/tags/jupyter/</loc>
     <lastmod>2020-01-06T00:00:00+00:00</lastmod>
   </url>
   
@@ -54,11 +89,6 @@
   
   <url>
     <loc>https://edisongustavo.github.io/posts/hello-jupyter/</loc>
-    <lastmod>2020-01-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://edisongustavo.github.io/tags/</loc>
     <lastmod>2020-01-06T00:00:00+00:00</lastmod>
   </url>
   

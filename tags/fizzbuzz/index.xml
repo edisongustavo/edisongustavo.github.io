@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>fizzbuzz on edisongustavo.me</title>
+    <link>https://edisongustavo.github.io/tags/fizzbuzz/</link>
+    <description>Recent content in fizzbuzz on edisongustavo.me</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>edisongustavo@gmail.com (Edison Gustavo Muenz)</managingEditor>
+    <webMaster>edisongustavo@gmail.com (Edison Gustavo Muenz)</webMaster>
+    <lastBuildDate>Fri, 02 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://edisongustavo.github.io/tags/fizzbuzz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FizzBuzz with Pytorch</title>
+      <link>https://edisongustavo.github.io/posts/fizzbuzz/</link>
+      <pubDate>Fri, 02 Oct 2020 00:00:00 +0000</pubDate>
+      <author>edisongustavo@gmail.com (Edison Gustavo Muenz)</author>
+      <guid>https://edisongustavo.github.io/posts/fizzbuzz/</guid>
+      <description>You might say that Software Engineers are mad people. They do weird stuff for no good reason&amp;hellip; and you&amp;rsquo;re probably right! So why not a FizzBuzz in the most inefficient way.
+This post is inspired by this super funny post from Joel Grus: Fizz Buzz in Tensorflow. Given that I&amp;rsquo;m working with Pytorch, I thought it would be a good idea to do something similar.
+So let&amp;rsquo;s get to the code!</description>
+    </item>
+    
+  </channel>
+</rss>

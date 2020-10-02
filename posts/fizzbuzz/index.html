@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>FizzBuzz with Pytorch - edisongustavo.me</title>
+  <meta name="description" content="You might say that Software Engineers are mad people. They do weird stuff for no good reason&hellip; and you&rsquo;re probably right! So why not a FizzBuzz in the most inefficient way.
+This post is inspired by this super funny post from Joel Grus: Fizz Buzz in Tensorflow. Given that I&rsquo;m working with Pytorch, I thought it would be a good idea to do something similar.
+So let&rsquo;s get to the code!">
+  <meta name="author" content="Edison Gustavo Muenz"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "edisongustavo.me",
+    
+    "url": "https:\/\/edisongustavo.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/edisongustavo.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/edisongustavo.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/edisongustavo.github.io\/posts\/fizzbuzz\/",
+          "name": "Fizz buzz with pytorch"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Edison Gustavo Muenz"
+  },
+  "headline": "FizzBuzz with Pytorch",
+  "description" : "You might say that Software Engineers are mad people. They do weird stuff for no good reason\u0026hellip; and you\u0026rsquo;re probably right! So why not a FizzBuzz in the most inefficient way.\nThis post is inspired by this super funny post from Joel Grus: Fizz Buzz in Tensorflow. Given that I\u0026rsquo;m working with Pytorch, I thought it would be a good idea to do something similar.\nSo let\u0026rsquo;s get to the code!",
+  "inLanguage" : "en",
+  "wordCount":  2410 ,
+  "datePublished" : "2020-10-02T00:00:00",
+  "dateModified" : "2020-10-02T00:00:00",
+  "image" : "https:\/\/edisongustavo.github.io\/",
+  "keywords" : [ "Machine Learning, Pytorch, Beginner, fizzbuzz" ],
+  "mainEntityOfPage" : "https:\/\/edisongustavo.github.io\/posts\/fizzbuzz\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/edisongustavo.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/edisongustavo.github.io\/",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="FizzBuzz with Pytorch" />
+<meta property="og:description" content="You might say that Software Engineers are mad people. They do weird stuff for no good reason&hellip; and you&rsquo;re probably right! So why not a FizzBuzz in the most inefficient way.
+This post is inspired by this super funny post from Joel Grus: Fizz Buzz in Tensorflow. Given that I&rsquo;m working with Pytorch, I thought it would be a good idea to do something similar.
+So let&rsquo;s get to the code!">
+<meta property="og:url" content="https://edisongustavo.github.io/posts/fizzbuzz/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="edisongustavo.me" />
+
+  <meta name="twitter:title" content="FizzBuzz with Pytorch" />
+  <meta name="twitter:description" content="You might say that Software Engineers are mad people. They do weird stuff for no good reason&hellip; and you&rsquo;re probably right! So why not a FizzBuzz in the most inefficient way.
+This post is …">
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.75.1" />
+  <link rel="alternate" href="https://edisongustavo.github.io/index.xml" type="application/rss+xml" title="edisongustavo.me"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://edisongustavo.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="https://edisongustavo.github.io/css/syntax.css" /><link rel="stylesheet" href="https://edisongustavo.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://edisongustavo.github.io/">edisongustavo.me</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="posts-heading">
+              
+                <h1>FizzBuzz with Pytorch</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>You might say that Software Engineers are mad people. They do weird stuff for no good reason&hellip;
+and you&rsquo;re probably right! So why not a <a href="https://en.wikipedia.org/wiki/Fizz_buzz">FizzBuzz</a>
+in the most inefficient way.</p>
+<p>This post is inspired by this super funny post from Joel Grus: <a href="https://joelgrus.com/2016/05/23/fizz-buzz-in-tensorflow/">Fizz Buzz in Tensorflow</a>.
+Given that I&rsquo;m working with Pytorch, I thought it would be a good idea to do something similar.</p>
+<p>So let&rsquo;s get to the code!</p>
+<h1 id="code">Code</h1>
+<p>First the imports:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">%</span>matplotlib inline
+<span style="color:#f92672">import</span> torch
+<span style="color:#f92672">import</span> torch.nn <span style="color:#f92672">as</span> nn
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">from</span> torch <span style="color:#f92672">import</span> optim
+<span style="color:#f92672">from</span> torch.utils.data <span style="color:#f92672">import</span> DataLoader, TensorDataset
+<span style="color:#f92672">from</span> tqdm.notebook <span style="color:#f92672">import</span> trange
+<span style="color:#f92672">from</span> sklearn <span style="color:#f92672">import</span> metrics
+</code></pre></div><p>I&rsquo;ve added a flag to run on CPU or GPU: <code>is_using_gpu</code>.</p>
+<p>I don&rsquo;t expect any speedup by running the code on this post on GPU, but it&rsquo;s nice to
+know that the code works in both platforms.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">is_using_gpu <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>cuda<span style="color:#f92672">.</span>is_available()
+is_using_gpu <span style="color:#f92672">=</span> False
+<span style="color:#66d9ef">if</span> is_using_gpu:
+    device <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>device(<span style="color:#e6db74">&#34;cuda&#34;</span>)
+<span style="color:#66d9ef">else</span>:
+    device <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>device(<span style="color:#e6db74">&#34;cpu&#34;</span>)
+device
+</code></pre></div><pre><code>device(type='cpu')
+</code></pre>
+<p>Now things get more <strong>interesting</strong>.</p>
+<p>The goal of this Neural Network (NN) is to identify which category a number is:</p>
+<ul>
+<li>Category 1: A &ldquo;fizzbuzz&rdquo;, when the number is divisible by 3 and 5</li>
+<li>Category 2: A &ldquo;fizz&rdquo;, when the number is divisible by 3</li>
+<li>Category 3: A &ldquo;buzz&rdquo;, when the number is divisible by 5</li>
+<li>Category 4: When the number belongs to none of the above categories</li>
+</ul>
+<p>As all problems for training neural networks, we now need data. There are 2 ways to do
+this for the <em>fizzbuzz problem</em>:</p>
+<ol>
+<li>
+<p>Hire a lot of people to label numbers! We could use <a href="https://www.mturk.com/">Amazon&rsquo;s Mechanical Turk</a>
+and take advantage of the cloud. This should be easy for &ldquo;turkers&rdquo; right?</p>
+</li>
+<li>
+<p>Or we cheat and implement the function ourselves as you would do on your <a href="https://wiki.c2.com/?FizzBuzzTest">technical interview</a>:</p>
+</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fizzbuzz</span>(number: int) <span style="color:#f92672">-&gt;</span> str:
+    <span style="color:#66d9ef">if</span> number <span style="color:#f92672">%</span> <span style="color:#ae81ff">15</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;fizzbuzz&#34;</span>
+    <span style="color:#66d9ef">elif</span> number <span style="color:#f92672">%</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;fizz&#34;</span>
+    <span style="color:#66d9ef">elif</span> number <span style="color:#f92672">%</span> <span style="color:#ae81ff">5</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;buzz&#34;</span>
+    <span style="color:#66d9ef">return</span> str(number)
+
+<span style="color:#66d9ef">assert</span> fizzbuzz(<span style="color:#ae81ff">1</span>) <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;1&#34;</span>
+<span style="color:#66d9ef">assert</span> fizzbuzz(<span style="color:#ae81ff">3</span>) <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;fizz&#34;</span>
+<span style="color:#66d9ef">assert</span> fizzbuzz(<span style="color:#ae81ff">5</span>) <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;buzz&#34;</span>
+<span style="color:#66d9ef">assert</span> fizzbuzz(<span style="color:#ae81ff">15</span>) <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;fizzbuzz&#34;</span>
+</code></pre></div><h2 id="input-layer">Input layer</h2>
+<p>The input layer is how we &ldquo;feed&rdquo; the neural network. It&rsquo;s the input numbers, such as 1, 3, 7, 10&hellip;</p>
+<p>While we could make the input layer be a simple number, let&rsquo;s be fancy and model it as a
+vector of binary numbers:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">NUM_DIGITS <span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">encode_binary</span>(n):
+    <span style="color:#66d9ef">return</span> np<span style="color:#f92672">.</span>array([n <span style="color:#f92672">&gt;&gt;</span> d <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">for</span> d <span style="color:#f92672">in</span> range(NUM_DIGITS)], dtype<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>float32)
+
+<span style="color:#66d9ef">assert</span> len(encode_binary(<span style="color:#ae81ff">2</span>)) <span style="color:#f92672">==</span> NUM_DIGITS
+<span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;2 = {encode_binary(2)}&#34;</span>)
+<span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;maximum value = {encode_binary(2**NUM_DIGITS-1)}&#34;</span>)
+</code></pre></div><pre><code>2 = [0. 1. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+maximum value = [1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
+</code></pre>
+<h2 id="output-layer">Output layer</h2>
+<p>The output of the NN is a vector. Each of its values will represent the &ldquo;likelihood&rdquo; of
+the input being of a specific category. In this case, each position of the output vector
+means &ldquo;how much the NN thinks the input belongs to that specific category&rdquo;:</p>
+<ul>
+<li>Position <code>0</code>: fizzbuzz</li>
+<li>Position <code>1</code>: fizz</li>
+<li>Position <code>2</code>: buzz</li>
+<li>Position <code>3</code>: none of the above categories, so return the number itself</li>
+</ul>
+<p>So, as an example, imagine that the prediction of the network is the vector
+<code>[-15, 2, 100, 3]</code>. In this case the maximum value is at <strong>position 2</strong> (value is <code>100</code>),
+so this is a <code>buzz</code>.</p>
+<p>Converting this idea into code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fizzbuzz_decode</span>(number: int, prediction: torch<span style="color:#f92672">.</span>Tensor) <span style="color:#f92672">-&gt;</span> str:
+    m <span style="color:#f92672">=</span> prediction<span style="color:#f92672">.</span>argmax()
+    <span style="color:#66d9ef">return</span> [<span style="color:#e6db74">&#34;fizzbuzz&#34;</span>, <span style="color:#e6db74">&#34;fizz&#34;</span>, <span style="color:#e6db74">&#34;buzz&#34;</span>, str(number)][m]
+</code></pre></div><hr>
+<p>The <code>argmax()</code> function returns the index of the element with the largest value in the
+vector. See the <a href="https://pytorch.org/docs/stable/generated/torch.argmax.html">pytorch docs</a>
+for a more detailed explanation.</p>
+<hr>
+<p>PS: It is odd that this method also contains a <code>number</code> parameter, but that&rsquo;s because when a
+number is not a <code>fizzbuzz</code>, <code>fizz</code> or <code>buzz</code>, then we should return <strong>the number itself</strong>.</p>
+<h1 id="the-dataset">The dataset</h1>
+<p>As any labeled dataset, it consists of two parts:</p>
+<ul>
+<li>X: The <strong>input</strong>, which is the number converted into binary with the <code>encode_binary()</code> method.</li>
+<li>Y: The labeled output, in this case if <code>X</code> is <code>fizz</code>, <code>buzz</code>, <code>fizzbuzz</code> or <code>none of the above</code>.</li>
+</ul>
+<p>To create our Dataset using Pytorch dataset classes, I used the <a href="https://pytorch.org/docs/stable/data.html#torch.utils.data.TensorDataset">TensorDataset</a>.</p>
+<h2 id="the-x">The X</h2>
+<p>For <code>X</code>, the training dataset will consist of all numbers from \(101\) to \(2^N\), where
+\(N = number\ of\ digits\). It doesn&rsquo;t start from <code>1</code> because it would be cheating, since
+the fizzbuzz problem states that we should be testing on the range of [1, 100] numbers
+and we don&rsquo;t want the network to learn the answers to the fizzbuzz problem, but the
+&ldquo;general idea of the fizzbuzz problem&rdquo;.</p>
+<h2 id="the-y">The Y</h2>
+<p>For <code>Y</code>, we encode the categories as numbers, or:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fizzbuzz_encode_answer_to_category_number</span>(answer: str) <span style="color:#f92672">-&gt;</span> int:
+    <span style="color:#66d9ef">assert</span> type(answer) <span style="color:#f92672">==</span> str
+    <span style="color:#66d9ef">try</span>:
+        <span style="color:#66d9ef">return</span> [<span style="color:#e6db74">&#34;fizzbuzz&#34;</span>, <span style="color:#e6db74">&#34;fizz&#34;</span>, <span style="color:#e6db74">&#34;buzz&#34;</span>]<span style="color:#f92672">.</span>index(answer)
+    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">ValueError</span>:
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">3</span>
+</code></pre></div><h2 id="putting-the-dataset-together">Putting the dataset together</h2>
+<p>Let&rsquo;s put the full dataset together by creating the <code>TensorDataset</code> object:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">NUM_CATEGORIES <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">create_fizzbuzz_train_dataset</span>() <span style="color:#f92672">-&gt;</span> TensorDataset:
+    values <span style="color:#f92672">=</span> range(<span style="color:#ae81ff">101</span>, <span style="color:#ae81ff">2</span> <span style="color:#f92672">**</span> NUM_DIGITS)
+    x <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>tensor([encode_binary(v) <span style="color:#66d9ef">for</span> v <span style="color:#f92672">in</span> values], device<span style="color:#f92672">=</span>device, requires_grad<span style="color:#f92672">=</span>False)
+    y <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>tensor([fizzbuzz_encode_answer_to_category_number(fizzbuzz(v)) <span style="color:#66d9ef">for</span> v <span style="color:#f92672">in</span> values], device<span style="color:#f92672">=</span>device, requires_grad<span style="color:#f92672">=</span>False)
+    <span style="color:#66d9ef">return</span> TensorDataset(x, y)
+    
+dataset <span style="color:#f92672">=</span> create_fizzbuzz_train_dataset()
+
+<span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;Dataset size: {len(dataset)}&#34;</span>)
+
+<span style="color:#75715e"># Let&#39;s inspect the first value of the dataset</span>
+
+x, y <span style="color:#f92672">=</span> dataset[<span style="color:#ae81ff">0</span>]
+<span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;{x=}&#34;</span>)
+<span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;{y=}&#34;</span>)
+</code></pre></div><pre><code>Dataset size: 32667
+x=tensor([1., 0., 1., 0., 0., 1., 1., 0., 0., 0., 0., 0., 0., 0., 0.])
+y=tensor(3)
+</code></pre>
+<h1 id="define-the-neural-network">Define the Neural Network</h1>
+<p>This is where the &ldquo;magic&rdquo; happens. In this case I decided to be simple and have a NN with
+a single hidden layer. Like this:</p>
+<p><img src="fizzbuzz-nn-architecture.svg" alt="Neural Network Architecture"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">NUM_HIDDEN <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FizzBuzz</span>(nn<span style="color:#f92672">.</span>Module):
+    <span style="color:#66d9ef">def</span> __init__(self):
+        super()<span style="color:#f92672">.</span>__init__()
+        self<span style="color:#f92672">.</span>first <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>Linear(NUM_DIGITS, NUM_HIDDEN)
+        self<span style="color:#f92672">.</span>relu <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>ReLU()
+        self<span style="color:#f92672">.</span>output <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>Linear(NUM_HIDDEN, NUM_CATEGORIES)
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">forward</span>(self, x):
+        a <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>first(x)
+        relu <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>relu(a)
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>output(relu)
+</code></pre></div><h1 id="train-the-model">Train the model</h1>
+<p>To train the model we need to define the loss function and the optimizer.</p>
+<p>For the <strong>loss function</strong> we use <a href="https://pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html">CrossEntropyLoss</a>.
+It is a good loss function for classification models because it penalizes all wrong
+answers &ldquo;equally&rdquo;. For example, given the value <code>3</code> (a <code>fizz</code>) and the NN predicts <code>buzz</code>,
+this loss function would penalize it as much as if it had predicted <code>fizzbuzz</code> or <code>none of the above</code>.</p>
+<p>It ensures that the NN doesn&rsquo;t learn any &ldquo;bad&rdquo; correlations between the categories.</p>
+<p>PRO TIP: My wording is of a beginner, so don&rsquo;t take it too strictly.</p>
+<p>For the <strong>optimizer</strong> let&rsquo;s use Adam because everybody likes it. Why not? We can try SGD
+(Stochastic Gradient Descent), but that&rsquo;s so old school&hellip;</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">model <span style="color:#f92672">=</span> FizzBuzz()
+<span style="color:#66d9ef">if</span> is_using_gpu:
+    model <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>cuda()
+loss_func <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>CrossEntropyLoss()
+
+<span style="color:#75715e"># optimizer = optim.SGD(model.parameters(), lr=0.05, momentum=0.9)</span>
+optimizer <span style="color:#f92672">=</span> optim<span style="color:#f92672">.</span>Adam(model<span style="color:#f92672">.</span>parameters(), lr<span style="color:#f92672">=</span><span style="color:#ae81ff">5e-3</span>)
+</code></pre></div><h2 id="the-training-loop">The training loop</h2>
+<p>The training loop means calling an <code>update()</code> method over our entire training dataset
+<code>N</code> times. The number <code>N</code> means the epoch. The implementation of <code>update()</code> is pretty
+standard. We will run the training loop for <code>1000</code> epochs, this means that the network
+will go through the training dataset 1000 times.</p>
+<p>Each training loop always uses minibatches, that is, divides the training dataset into
+smaller parts so that it fits into memory. The size of these batches is defined below by
+the constant <code>BATCH_SIZE</code>.</p>
+<p>I also added some metrics to be printed every 50 epochs so we can see how our model is
+progressing. I&rsquo;ve used the functions in the <a href="https://scikit-learn.org/stable/modules/model_evaluation.html">scikit-learn metrics</a>
+module.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">%%</span>time
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">update</span>(x, y):
+    y_hat <span style="color:#f92672">=</span> model(x)
+    loss <span style="color:#f92672">=</span> loss_func(y_hat, y)
+
+    optimizer<span style="color:#f92672">.</span>zero_grad()
+    loss<span style="color:#f92672">.</span>backward()
+    optimizer<span style="color:#f92672">.</span>step()
+    <span style="color:#66d9ef">return</span> loss<span style="color:#f92672">.</span>item()
+
+BATCH_SIZE <span style="color:#f92672">=</span> <span style="color:#ae81ff">128</span>
+data_loader <span style="color:#f92672">=</span> DataLoader(dataset, batch_size<span style="color:#f92672">=</span>BATCH_SIZE, pin_memory<span style="color:#f92672">=</span>False)
+
+<span style="color:#66d9ef">for</span> epoch <span style="color:#f92672">in</span> trange(<span style="color:#ae81ff">1000</span>):
+    epoch_loss <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+    <span style="color:#66d9ef">for</span> batch_index, batch <span style="color:#f92672">in</span> enumerate(data_loader):
+        x, y <span style="color:#f92672">=</span> batch
+        loss <span style="color:#f92672">=</span> update(x, y)
+        epoch_loss <span style="color:#f92672">+=</span> loss
+
+    <span style="color:#66d9ef">if</span> epoch <span style="color:#f92672">%</span> <span style="color:#ae81ff">50</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+        x_train, y_train_gold <span style="color:#f92672">=</span> data_loader<span style="color:#f92672">.</span>dataset<span style="color:#f92672">.</span>tensors
+        y_train_pred <span style="color:#f92672">=</span> model(x_train)<span style="color:#f92672">.</span>argmax(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">.</span>detach()
+        accuracy <span style="color:#f92672">=</span> metrics<span style="color:#f92672">.</span>accuracy_score(y_train_gold, y_train_pred)
+        <span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;Epoch={epoch}, loss={epoch_loss:4.4f}, accuracy={accuracy}&#34;</span>)
+</code></pre></div><pre><code>HBox(children=(FloatProgress(value=0.0, max=1000.0), HTML(value='')))
+
+
+Epoch=0, loss=292.9599, accuracy=0.5333517004928521
+Epoch=50, loss=78.5622, accuracy=0.8200936725135458
+Epoch=100, loss=21.5996, accuracy=0.9391740900603055
+Epoch=150, loss=11.7051, accuracy=0.9795818410016224
+Epoch=200, loss=17.3013, accuracy=0.9626840542443444
+Epoch=250, loss=11.6223, accuracy=0.9670921725288517
+Epoch=300, loss=13.2991, accuracy=0.9681023663023847
+Epoch=350, loss=3.2139, accuracy=0.9922551810695809
+Epoch=400, loss=2.7036, accuracy=0.9962041203661187
+Epoch=450, loss=1.1782, accuracy=0.9975816573300272
+Epoch=500, loss=1.5354, accuracy=0.9980714482505281
+Epoch=550, loss=3.0221, accuracy=0.9968775828818073
+Epoch=600, loss=1.1971, accuracy=0.9972143141396517
+Epoch=650, loss=1.1655, accuracy=0.9958980010408057
+Epoch=700, loss=1.4270, accuracy=0.9932347629105825
+Epoch=750, loss=2.1136, accuracy=0.9914592708237671
+Epoch=800, loss=12.5572, accuracy=0.9741941408761136
+Epoch=850, loss=0.8615, accuracy=0.9988367465638106
+Epoch=900, loss=1.2026, accuracy=0.9967857470842134
+Epoch=950, loss=3.7828, accuracy=0.9839593473535985
+
+CPU times: user 34min 38s, sys: 1.27 s, total: 34min 40s
+Wall time: 4min 20s
+</code></pre>
+<p>As you can see it took approximately 4 minutes to train this NN. The final accuracy over
+the training dataset is of 98%</p>
+<p>The specs of my machine:</p>
+<ul>
+<li>CPU: AMD Ryzen 7 3700X (16) @ 3.600GHz</li>
+<li>GPU: NVIDIA GeForce GTX 1080</li>
+<li>Memory: 32 GB</li>
+</ul>
+<h1 id="now-lets-do-some-inference">Now let&rsquo;s do some inference!</h1>
+<p>Let&rsquo;s see if Machine Learning really lives by its fame now.</p>
+<p>Here I test what the NN predicted versus the actual result. I print the string <code>.</code> when
+the NN made a <strong>correct</strong> prediction. This way it&rsquo;s easier to see when there was a mistake.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> number <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">101</span>):
+    tensor <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>tensor(encode_binary(number), device<span style="color:#f92672">=</span>device)
+    predict <span style="color:#f92672">=</span> model(tensor)
+    predicted_fizzbuzz <span style="color:#f92672">=</span> fizzbuzz_decode(number, predict)
+    
+    actual_fizzbuzz <span style="color:#f92672">=</span> fizzbuzz_encode_answer_to_category_number(fizzbuzz(number))
+    z <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros(NUM_CATEGORIES)
+    z[actual_fizzbuzz] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+    actual_fizzbuzz <span style="color:#f92672">=</span> fizzbuzz_decode(number, z)
+    <span style="color:#66d9ef">assert</span> actual_fizzbuzz <span style="color:#f92672">==</span> fizzbuzz(number)
+    
+    equal <span style="color:#f92672">=</span> predicted_fizzbuzz <span style="color:#f92672">==</span> actual_fizzbuzz
+    <span style="color:#66d9ef">if</span> equal:
+        equal <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;.&#34;</span>
+    <span style="color:#66d9ef">print</span>(f<span style="color:#e6db74">&#34;{equal} ({number}) =&gt; Actual = {actual_fizzbuzz}, predicted = {predicted_fizzbuzz}&#34;</span>)
+</code></pre></div><pre><code>. (1) =&gt; Actual = 1, predicted = 1
+. (2) =&gt; Actual = 2, predicted = 2
+. (3) =&gt; Actual = fizz, predicted = fizz
+. (4) =&gt; Actual = 4, predicted = 4
+. (5) =&gt; Actual = buzz, predicted = buzz
+. (6) =&gt; Actual = fizz, predicted = fizz
+. (7) =&gt; Actual = 7, predicted = 7
+False (8) =&gt; Actual = 8, predicted = buzz
+. (9) =&gt; Actual = fizz, predicted = fizz
+. (10) =&gt; Actual = buzz, predicted = buzz
+. (11) =&gt; Actual = 11, predicted = 11
+. (12) =&gt; Actual = fizz, predicted = fizz
+. (13) =&gt; Actual = 13, predicted = 13
+. (14) =&gt; Actual = 14, predicted = 14
+. (15) =&gt; Actual = fizzbuzz, predicted = fizzbuzz
+. (16) =&gt; Actual = 16, predicted = 16
+. (17) =&gt; Actual = 17, predicted = 17
+. (18) =&gt; Actual = fizz, predicted = fizz
+. (19) =&gt; Actual = 19, predicted = 19
+. (20) =&gt; Actual = buzz, predicted = buzz
+. (21) =&gt; Actual = fizz, predicted = fizz
+. (22) =&gt; Actual = 22, predicted = 22
+. (23) =&gt; Actual = 23, predicted = 23
+. (24) =&gt; Actual = fizz, predicted = fizz
+. (25) =&gt; Actual = buzz, predicted = buzz
+. (26) =&gt; Actual = 26, predicted = 26
+. (27) =&gt; Actual = fizz, predicted = fizz
+. (28) =&gt; Actual = 28, predicted = 28
+. (29) =&gt; Actual = 29, predicted = 29
+. (30) =&gt; Actual = fizzbuzz, predicted = fizzbuzz
+. (31) =&gt; Actual = 31, predicted = 31
+. (32) =&gt; Actual = 32, predicted = 32
+. (33) =&gt; Actual = fizz, predicted = fizz
+. (34) =&gt; Actual = 34, predicted = 34
+. (35) =&gt; Actual = buzz, predicted = buzz
+. (36) =&gt; Actual = fizz, predicted = fizz
+. (37) =&gt; Actual = 37, predicted = 37
+. (38) =&gt; Actual = 38, predicted = 38
+. (39) =&gt; Actual = fizz, predicted = fizz
+. (40) =&gt; Actual = buzz, predicted = buzz
+. (41) =&gt; Actual = 41, predicted = 41
+. (42) =&gt; Actual = fizz, predicted = fizz
+. (43) =&gt; Actual = 43, predicted = 43
+. (44) =&gt; Actual = 44, predicted = 44
+. (45) =&gt; Actual = fizzbuzz, predicted = fizzbuzz
+. (46) =&gt; Actual = 46, predicted = 46
+. (47) =&gt; Actual = 47, predicted = 47
+. (48) =&gt; Actual = fizz, predicted = fizz
+. (49) =&gt; Actual = 49, predicted = 49
+. (50) =&gt; Actual = buzz, predicted = buzz
+. (51) =&gt; Actual = fizz, predicted = fizz
+. (52) =&gt; Actual = 52, predicted = 52
+. (53) =&gt; Actual = 53, predicted = 53
+. (54) =&gt; Actual = fizz, predicted = fizz
+. (55) =&gt; Actual = buzz, predicted = buzz
+. (56) =&gt; Actual = 56, predicted = 56
+. (57) =&gt; Actual = fizz, predicted = fizz
+. (58) =&gt; Actual = 58, predicted = 58
+. (59) =&gt; Actual = 59, predicted = 59
+. (60) =&gt; Actual = fizzbuzz, predicted = fizzbuzz
+. (61) =&gt; Actual = 61, predicted = 61
+. (62) =&gt; Actual = 62, predicted = 62
+. (63) =&gt; Actual = fizz, predicted = fizz
+. (64) =&gt; Actual = 64, predicted = 64
+. (65) =&gt; Actual = buzz, predicted = buzz
+. (66) =&gt; Actual = fizz, predicted = fizz
+. (67) =&gt; Actual = 67, predicted = 67
+. (68) =&gt; Actual = 68, predicted = 68
+. (69) =&gt; Actual = fizz, predicted = fizz
+. (70) =&gt; Actual = buzz, predicted = buzz
+. (71) =&gt; Actual = 71, predicted = 71
+. (72) =&gt; Actual = fizz, predicted = fizz
+. (73) =&gt; Actual = 73, predicted = 73
+. (74) =&gt; Actual = 74, predicted = 74
+. (75) =&gt; Actual = fizzbuzz, predicted = fizzbuzz
+. (76) =&gt; Actual = 76, predicted = 76
+. (77) =&gt; Actual = 77, predicted = 77
+. (78) =&gt; Actual = fizz, predicted = fizz
+. (79) =&gt; Actual = 79, predicted = 79
+. (80) =&gt; Actual = buzz, predicted = buzz
+. (81) =&gt; Actual = fizz, predicted = fizz
+. (82) =&gt; Actual = 82, predicted = 82
+. (83) =&gt; Actual = 83, predicted = 83
+. (84) =&gt; Actual = fizz, predicted = fizz
+. (85) =&gt; Actual = buzz, predicted = buzz
+. (86) =&gt; Actual = 86, predicted = 86
+. (87) =&gt; Actual = fizz, predicted = fizz
+. (88) =&gt; Actual = 88, predicted = 88
+. (89) =&gt; Actual = 89, predicted = 89
+. (90) =&gt; Actual = fizzbuzz, predicted = fizzbuzz
+. (91) =&gt; Actual = 91, predicted = 91
+. (92) =&gt; Actual = 92, predicted = 92
+. (93) =&gt; Actual = fizz, predicted = fizz
+. (94) =&gt; Actual = 94, predicted = 94
+. (95) =&gt; Actual = buzz, predicted = buzz
+. (96) =&gt; Actual = fizz, predicted = fizz
+. (97) =&gt; Actual = 97, predicted = 97
+. (98) =&gt; Actual = 98, predicted = 98
+. (99) =&gt; Actual = fizz, predicted = fizz
+. (100) =&gt; Actual = buzz, predicted = buzz
+</code></pre>
+<p>The model predicted almost all results correctly, except for the number 8, where the NN
+predicted <code>buzz</code> instead of <code>none of the above</code>.</p>
+<p>That&rsquo;s still quite good I would say :)</p>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://edisongustavo.github.io//tags/machine-learning/">Machine Learning</a>&nbsp;
+            
+              <a href="https://edisongustavo.github.io//tags/pytorch/">Pytorch</a>&nbsp;
+            
+              <a href="https://edisongustavo.github.io//tags/beginner/">Beginner</a>&nbsp;
+            
+              <a href="https://edisongustavo.github.io//tags/fizzbuzz/">fizzbuzz</a>&nbsp;
+            
+          </div>
+        
+
+        
+
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://edisongustavo.github.io/posts/my-first-post/" data-toggle="tooltip" data-placement="top" title="Hello blog">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:edisongustavo@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Edison Gustavo Muenz
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2020
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://edisongustavo.github.io/">edisongustavo.me</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.75.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://edisongustavo.github.io/js/main.js"></script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://edisongustavo.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+
